@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Registro Empleado</title>
+</head>
+<body>
+
+<h1 id="titulo">Registro de Empleado</h1>
+
+<form th:action="@{/register}" method="post">
+
+  <label>Nombre:</label>
+  <input type="text" id="name" name="name"/><br/>
+
+  <label>Email:</label>
+  <input type="email" id="email" name="email"/><br/>
+
+  <label>Password:</label>
+  <input type="password" id="password" name="password"/><br/>
+
+  <label>Departamento:</label>
+  <select id="department" name="department">
+    <option value="IT">IT</option>
+    <option value="HR">HR</option>
+    <option value="FINANCE">Finance</option>
+  </select><br/>
+
+  <label>Tipo contrato:</label>
+  <input type="radio" name="contractType" value="FULL_TIME" id="fullTime"/> Full Time
+  <input type="radio" name="contractType" value="PART_TIME" id="partTime"/> Part Time
+  <br/>
+
+  <label>Habilidades:</label>
+  <input type="checkbox" name="skills" value="JAVA" id="javaSkill"/> Java
+  <input type="checkbox" name="skills" value="SQL" id="sqlSkill"/> SQL
+  <input type="checkbox" name="skills" value="DOCKER" id="dockerSkill"/> Docker
+  <br/>
+
+  <label>Comentarios:</label>
+  <textarea id="comments" name="comments"></textarea><br/>
+
+  <button type="submit" id="submitBtn">Registrar</button>
+
+</form>
+
+<div id="result" th:if="${success}">
+  <p id="successMessage">Empleado registrado correctamente</p>
+</div>
+
+</body>
+</html>
